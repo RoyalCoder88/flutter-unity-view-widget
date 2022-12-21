@@ -58,7 +58,7 @@ class MobileUnityWidgetController extends UnityWidgetController {
       _onUnitySceneLoadedSub = UnityWidgetPlatform.instance
           .onUnitySceneLoaded(unityId: unityId)
           .listen((UnitySceneLoadedEvent e) =>
-              _unityWidgetState.widget.onUnitySceneLoaded!(e.value));
+              _unityWidgetState.widget.onUnitySceneLoaded!(e.value!));
     }
 
     if (_unityWidgetState.widget.onUnityUnloaded != null) {
