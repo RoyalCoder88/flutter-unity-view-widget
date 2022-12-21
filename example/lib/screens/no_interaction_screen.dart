@@ -3,7 +3,7 @@ import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 
 class NoInteractionScreen extends StatefulWidget {
-  NoInteractionScreen({Key key}) : super(key: key);
+  NoInteractionScreen({Key? key}) : super(key: key);
 
   @override
   _NoInteractionScreenState createState() => _NoInteractionScreenState();
@@ -13,7 +13,7 @@ class _NoInteractionScreenState extends State<NoInteractionScreen> {
   static final GlobalKey<ScaffoldState> _scaffoldKey =
       GlobalKey<ScaffoldState>();
 
-  UnityWidgetController _unityWidgetController;
+  UnityWidgetController? _unityWidgetController;
 
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _NoInteractionScreenState extends State<NoInteractionScreen> {
 
   @override
   void dispose() {
-    _unityWidgetController.dispose();
+    _unityWidgetController!.dispose();
     super.dispose();
   }
 
@@ -68,7 +68,7 @@ class _NoInteractionScreenState extends State<NoInteractionScreen> {
   }
 
   void setRotationSpeed(String speed) {
-    _unityWidgetController.postMessage(
+    _unityWidgetController!.postMessage(
       'Cube',
       'SetRotationSpeed',
       speed,
@@ -79,8 +79,8 @@ class _NoInteractionScreenState extends State<NoInteractionScreen> {
     print('Received message from unity: ${message.toString()}');
   }
 
-  void onUnitySceneLoaded(SceneLoaded scene) {
-    print('Received scene loaded from unity: ${scene.name}');
+  void onUnitySceneLoaded(SceneLoaded? scene) {
+    print('Received scene loaded from unity: ${scene!.name}');
     print('Received scene loaded from unity buildIndex: ${scene.buildIndex}');
   }
 
